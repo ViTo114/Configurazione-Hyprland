@@ -1,0 +1,259 @@
+* {
+    font-family: 'Noto Sans Mono', 'Font Awesome 6 Free', 'Font Awesome 6 Brands', monospace;
+    font-size: 15px;
+}
+
+/* linea bianca sopra */
+window#waybar {
+  background-color: #000;
+  color: #fff;
+  border-top: 2px solid #fff;
+}
+
+/* spinge giù TUTTI i moduli di 1px */
+window#waybar > box {
+  padding-top: 2px;   /* stesso spessore del bordo */
+}
+
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+/*
+window#waybar.empty {
+    background-color: transparent;
+}
+window#waybar.solo {
+    background-color: #FFFFFF;
+}
+*/
+
+window#waybar.termite {
+    background-color: #3F3F3F;
+}
+
+window#waybar.chromium {
+    background-color: #000000;
+    border: none;
+}
+
+button {
+    box-shadow: inset 0 -3px transparent;
+    border: none;
+    border-radius: 0;
+}
+
+button:hover {
+    background: inherit;
+    box-shadow: inset 0 -3px #ffffff;
+}
+
+#pulseaudio:hover {
+    background-color: #a37800;
+}
+
+#workspaces button {
+    padding: 0 5px;
+    background-color: transparent;
+    color: #ffffff;
+}
+
+#workspaces button:hover {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#workspaces button.active,
+#workspaces button.focused {
+  background-color: #808080;
+  color: #ffffff;
+  border: none;         /* niente bordo */
+  border-radius: 0px;
+  padding: 2px 6px;
+  box-shadow: none;
+}
+
+
+#workspaces button.urgent {
+    background-color: #eb4d4b;
+}
+
+#mode {
+    background-color: #64727D;
+    box-shadow: inset 0 -3px #ffffff;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#scratchpad,
+#power-profiles-daemon,
+#mpd,
+#bluetooth {
+    padding: 0 10px;
+    color: #ffffff;
+}
+
+#window,
+#workspaces {
+    margin: 0 4px;
+}
+
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+#clock {
+    background-color: #000000; /* nero */
+    color: #ffffff;            /* bianco */
+}
+
+#battery {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+#battery.charging, #battery.plugged {
+    color: #ffffff;
+    background-color: #26A65B;
+}
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}
+
+#battery.critical:not(.charging) {
+    background-color: #f53c3c;
+    color: #ffffff;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+label:focus {
+    background-color: #000000;
+}
+
+#network {
+    background-color: #2980b9;
+}
+
+#network.disconnected {
+    background-color: #f53c3c;
+}
+
+#network.disabled {
+    background-color: #f53c3c; /* rosso quando il Wi-Fi è spento */
+    color: #ffffff;
+}
+
+
+
+#pulseaudio {
+    background-color: #000000; /* nero */
+    color: #ffffff;            /* bianco */
+}
+
+#pulseaudio.muted {
+    background-color: #000000; /* sempre nero */
+    color: #ffffff;
+}
+
+#wireplumber {
+    background-color: #fff0f5;
+    color: #000000;
+}
+
+#wireplumber.muted {
+    background-color: #f53c3c;
+}
+
+#temperature {
+    background-color: #000000; /* nero */
+    color: #ffffff;            /* bianco */
+}
+
+#temperature.critical {
+    background-color: #000000; /* sempre nero, volendo puoi cambiarlo */
+    color: #ffffff;
+}
+
+#tray {
+    background-color: #2980b9;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #eb4d4b;
+}
+
+#scratchpad {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#scratchpad.empty {
+	background-color: transparent;
+}
+
+#privacy {
+    padding: 0;
+}
+
+#privacy-item {
+    padding: 0 5px;
+    color: white;
+}
+
+#privacy-item.screenshare {
+    background-color: #cf5700;
+}
+
+#privacy-item.audio-in {
+    background-color: #1ca000;
+}
+
+#privacy-item.audio-out {
+    background-color: #0069d4;
+}
+
+/* --- BLUETOOTH MODULE --- */
+
+#bluetooth {
+    background-color: #2e3a59; /* blu scuro (default) */
+    color: #ffffff;
+}
+
+#bluetooth.connected {
+    background-color: #2e3a59; /* blu scuro quando connesso */
+    color: #ffffff;
+}
+
+#bluetooth.off {
+    background-color: #f53c3c; /* rosso quando disabilitato */
+    color: #ffffff;
+}
+
