@@ -1,0 +1,43 @@
+configuration {
+    close-on-unfocus: true;
+    font: "mono 14";
+    show-icons: true;
+    
+    timeout {
+        action: "kb-cancel";
+        delay:  0;
+    }
+    
+    filebrowser {
+        directories-first: true;
+        sorting-method:    "name";
+    }
+}
+
+/* Carica il tema base */
+@theme "/usr/share/rofi/themes/android_notification.rasi"
+
+/* --- OVERRIDE PER BORDI ARROTONDATI --- */
+
+window {
+    border-radius:    10px;     /* Arrotonda la finestra principale */
+    border:           0px;      /* Spessore del bordo */
+    border-color:     #61afef;  /* Colore del bordo (opzionale) */
+    background-color: #282c34;  /* Assicurati che il fondo sia coerente */
+}
+
+element {
+    border-radius:    10px;     /* Arrotonda l'evidenziazione della selezione */
+    padding:          8px;
+    orientation:      horizontal;
+    children:         [ element-icon, element-text ]; /* Ho invertito per un look più standard */
+    spacing:          10px;
+}
+
+element-text {
+    vertical-align: 0.5;
+}
+
+element-icon {
+    size: 20px;
+}
