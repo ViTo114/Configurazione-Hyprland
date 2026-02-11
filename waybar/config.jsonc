@@ -6,22 +6,30 @@
     "passthrough": false,
     "gtk-layer-shell": true,
     "height": 0,
+
     "modules-left": [
         "hyprland/workspaces",
-        "custom/media"
+        "custom/media",
+        "hyprland/window"
     ],
     "modules-center": [
         "clock"
     ],
     "modules-right": [
         "tray",
+        "group/stats",
         "group/hardware",
         "custom/reboot",
         "custom/power"
     ],
 
     "hyprland/window": {
-        "format": "{}"
+        "format": "󱂬  {title}",
+        "max-length": 35,
+        "rewrite": {
+            "": "Desktop"
+        },
+        "separate-outputs": true
     },
 
     "hyprland/workspaces": {
@@ -48,6 +56,26 @@
             "Sway Notification Center" 
         ]
     },
+
+    // --- NUOVO GRUPPO STATISTICHE (RAM/CPU) ---
+    "group/stats": {
+        "orientation": "horizontal",
+        "modules": [
+            "cpu",
+            "memory"
+        ]
+    },
+
+    "cpu": {
+        "format": " {usage}%",
+        "tooltip": false
+    },
+
+    "memory": {
+        "format": " {}%",
+        "tooltip": false
+    },
+    // ------------------------------------------
 
     "group/hardware": {
         "orientation": "horizontal",
@@ -87,13 +115,8 @@
         "format-ethernet": " Connected",
         "tooltip-format": "{essid} - {ifname} via {gwaddr}",
         "format-linked": "{ifname} (No IP)",
-        
-        // CASO 1: Wi-Fi ACCESO ma NON CONNESSO a nessuna rete
         "format-disconnected": "⚠ Disconnected",
-        
-        // CASO 2: Wi-Fi SPENTO (RFKILL)
         "format-disabled": "  off",
-        
         "format-alt": "{ifname}: {ipaddr}",
         "on-click": "rfkill toggle wlan",
         "on-click-right": "nm-connection-editor"
@@ -102,7 +125,7 @@
     "bluetooth": {
         "format": " {status}",
         "format-disabled": " off", 
-        "format-connected": " {num_connections}",
+        "format-connected": " Connected",
         "tooltip-format": "{controller_alias}\t{controller_address}",
         "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
         "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
